@@ -1,3 +1,5 @@
+/// <reference types="node" />
+
 // Runs before any test file imports the app.
 import 'dotenv/config'; // so TEST_DATABASE_URL can come from .env
 
