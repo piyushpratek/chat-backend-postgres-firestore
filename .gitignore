@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+*.log
+serviceAccount*.json
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+make-commits.sh

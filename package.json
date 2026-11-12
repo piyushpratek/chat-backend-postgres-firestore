@@ -1,0 +1,45 @@
+{
+  "name": "chat-backend",
+  "version": "1.0.0",
+  "description": "1:1 and group chat backend: users and chats in PostgreSQL, messages and read receipts in Firebase Firestore",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.json && node -e \"require('fs').cpSync('src/db/schema.sql','dist/db/schema.sql')\"",
+    "start": "node dist/index.js",
+    "migrate": "tsx src/db/migrate.ts",
+    "seed": "tsx scripts/seed.ts",
+    "typecheck": "tsc -p tsconfig.check.json",
+    "test": "firebase emulators:exec --only firestore --project demo-chat-test \"vitest run\"",
+    "test:only": "vitest run",
+    "emulator": "firebase emulators:start --only firestore --project demo-chat"
+  },
+  "author": "Piyush Prateek",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "firebase-admin": "^14.5.1",
+    "helmet": "^8.3.0",
+    "morgan": "^1.12.1",
+    "pg": "^8.23.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^26.6.6",
+    "@types/pg": "^8.23.1",
+    "@types/supertest": "^7.2.1",
+    "firebase-tools": "^15.36.0",
+    "supertest": "^7.3.2",
+    "tsx": "^4.23.15",
+    "typescript": "5.9",
+    "vitest": "^5.1.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
